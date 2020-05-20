@@ -1,0 +1,4 @@
+env/
+pyls_memestra.egg-info/
+.ipynb_checkpoints/
+pyls_memestra/__pycache__
