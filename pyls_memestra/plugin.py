@@ -20,7 +20,7 @@ def pyls_lint(document):
             diagnostics.append({
                 'source': 'memestra',
                 'range': err_range,
-                'message': fname + "is deprecated.",
+                'message': fname + " is deprecated.",
                 'severity': lsp.DiagnosticSeverity.Information,
             })
     return diagnostics
