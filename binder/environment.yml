@@ -1,0 +1,16 @@
+name: pyls-memestra
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python >=3.7,<3.8.0a0
+  - jupyterlab >=2,<3.0.0a0
+  - notebook >=4.3.1
+  - nodejs
+  - pip
+  - python-language-server
+  - ujson <=1.35
+  - ruamel_yaml
+  - pip:
+      - jupyter-lsp
+
