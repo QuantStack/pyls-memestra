@@ -1,4 +1,3 @@
-# Copyright 2017 Palantir Technologies, Inc.
 from pyls import hookimpl, lsp
 from memestra import memestra
 
