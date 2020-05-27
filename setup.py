@@ -9,10 +9,10 @@ setup(
     description="Memestra plugin for the Python Language Server",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/QuantStack/memestra",
+    url="https://github.com/QuantStack/pyls-memestra",
     author="marimeireles",
     author_email="mariana@psychonautgirl.space",
-    packages=find_packages(exclude=["tests"]),
+    packages=['pyls_memestra', "tests"],
     install_requires=open("requirements.txt").read().splitlines(),
     entry_points={"pyls": ["pyls_memestra = pyls_memestra.plugin"]},
     classifiers=[
