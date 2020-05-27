@@ -1,6 +1,6 @@
 # pyls-memestra
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/marimeireles/pyls-memestra/master?urlpath=/lab/tree/tests/file.py)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/marimeireles/pyls-memestra/master?urlpath=/lab/tree/binder/notebook.ipynb)
 
 > [Memestra](https://github.com/QuantStack/memestra/) plugin for the [Python Language Server](https://github.com/palantir/python-language-server)
 
