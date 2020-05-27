@@ -28,26 +28,20 @@ python -m pip install -e .
     pip install jupyter-lsp
     ```
 
-4. install the server extension:
-
-    ```bash
-    pip install jupyter-lsp
-    ```
-
-5. install `nodejs`
+4. install `nodejs`
 
     ```bash
     conda install -c conda-forge nodejs
     ```
 
-6. install the frontend extension:
+5. install the frontend extension:
 
     ```bash
     jupyter labextension install @krassowski/jupyterlab-lsp           # for JupyterLab 2.x
     # jupyter labextension install @krassowski/jupyterlab-lsp@0.8.0   # for JupyterLab 1.x
     ```
 
-8. install python language server:
+6. install python language server:
 
     ```bash
     conda install -c conda-forge python-language-server
@@ -61,7 +55,7 @@ python -m pip install -e .
     python -m pip install -e .
     ```
 
-8. install plugin
+8. install the plugin
 
     ```bash
     python -m pip install -e .
