@@ -20,7 +20,6 @@ def test_pyls_file():
             9, 0)]
 
 def test_pyls_format_text_syntax():
-    lista = []
     keywords = [('foo', '', 7, 4), ('foo', '', 9, 0)]
 
     result = format_text(keywords, [])
