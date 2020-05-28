@@ -5,7 +5,7 @@ from memestra import memestra
 def pyls_lint(document):
     diagnostics = []
     with open(document.path, 'r') as code:
-        deprecated_uses = memestra(code, decorator=("decorator", "deprecated"))
+        deprecated_uses = memestra(code, decorator=("decoratortest", "deprecated"))
         diagnostics = format_text(deprecated_uses, diagnostics)
     return diagnostics
 
