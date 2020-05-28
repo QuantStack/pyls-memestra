@@ -4,7 +4,13 @@
 
 > [Memestra](https://github.com/QuantStack/memestra/) plugin for the [Python Language Server](https://github.com/palantir/python-language-server)
 
+![screenshot](./screenshot.png)
+
+## Installation from source
+
 ```bash
+git clone git@github.com:QuantStack/pyls-memestra.git
+cd pyls-memestra
 python -m pip install -e .
 ```
 
