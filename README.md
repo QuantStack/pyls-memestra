@@ -56,9 +56,7 @@ python -m pip install -e .
 7. install [Memestra](https://github.com/QuantStack/memestra):
 
     ```bash
-    git clone git@github.com:QuantStack/memestra.git
-    cd memestra
-    python -m pip install -e .
+    pip install memestra
     ```
 
 8. install the plugin
