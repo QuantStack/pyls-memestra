@@ -11,6 +11,12 @@ Installing pyls-memestra in Jupyter Lab
 
 Note that this extension depends on Memestra, so it's necessary to install it first. Please check Memestra's documentation_ for more information.
 
+Install Pyls-Memestra plugin:
+
+.. code-block:: console
+
+    pip install pyls-memestra
+
 Install the server extension:
 
 .. code-block:: console
@@ -35,12 +41,6 @@ Or conda:
 .. code-block:: console
 
     conda install -c conda-forge nodejs python-language-server
-
-Install Pyls-Memestra plugin:
-
-.. code-block:: console
-
-    pip install pyls-memestras
 
 Example of pyls-memestra use
 ----------------------------
