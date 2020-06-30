@@ -2,3 +2,11 @@ env/
 pyls_memestra.egg-info/
 .ipynb_checkpoints/
 pyls_memestra/__pycache__
+build
+dist
+*.py[co]
+__pycache__
+*.egg-info
+.ipynb_checkpoints
+.DS_Store
+.pytest_cache
