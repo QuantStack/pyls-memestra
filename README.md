@@ -6,7 +6,21 @@
 
 ![screenshot](./screenshot.png)
 
-## Installation from source
+# Installation
+
+## From pip
+
+`pip install pyls-memestra`
+
+## From Mamba
+
+`mamba install -c conda-forge pyls-memestra`
+
+## From Conda
+
+`conda install -c conda-forge pyls-memestra`
+
+## From source
 
 ```bash
 git clone git@github.com:QuantStack/pyls-memestra.git
@@ -14,7 +28,7 @@ cd pyls-memestra
 python -m pip install -e .
 ```
 
-## For a development environment
+# For a development environment
 
 1. install python
 
