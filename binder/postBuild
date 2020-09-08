@@ -1,4 +1,4 @@
 pip install git+https://github.com/QuantStack/memestra
 pip install .
 
-jupyter labextension install --debug --minimize=False @krassowski/jupyterlab-lsp@1.1.2
+jupyter labextension install --debug --minimize=False @krassowski/jupyterlab-lsp
