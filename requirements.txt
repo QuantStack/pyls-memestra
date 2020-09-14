@@ -4,3 +4,4 @@ nbformat
 pyyaml
 python-language-server
 memestra
+Deprecated
