@@ -18,7 +18,7 @@ def format_text(deprecated_uses, diagnostics):
     for fname, fd, lineno, colno, reason in deprecated_uses:
         err_range = {
             'start': {'line': lineno - 1, 'character': colno},
-            'end': {'line': lineno - 1, 'character': len(fname)},
+            'end': {'line': lineno - 1, 'character': colno + len(fname)},
         }
         if reason != "reason":
             diagnostics.append({
