@@ -20,7 +20,7 @@ def format_text(deprecated_uses, diagnostics):
             'start': {'line': lineno - 1, 'character': colno},
             'end': {'line': lineno - 1, 'character': colno + len(fname)},
         }
-        if reason != "reason":
+        if reason and reason != "reason":
             diagnostics.append({
                 'source': 'memestra',
                 'range': err_range,
