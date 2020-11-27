@@ -1,0 +1,5 @@
+deprecated:
+- 'bar:cached'
+generator: manual
+name: cachetest
+version: 1
