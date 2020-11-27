@@ -1,7 +1,3 @@
-gast
-beniget
-nbformat
-pyyaml
 python-language-server
-memestra
+memestra>=0.1.0,<0.2
 Deprecated
