@@ -1,54 +1,36 @@
-.. Pyls-Memestra documentation master file, created by
-   sphinx-quickstart on Wed Jun 24 19:39:52 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. Copyright (c) 2020, QuantStack and pyls-memestra contributors
 
-Welcome to Pyls-Memestra's documentation!
-=========================================
+   Distributed under the terms of the BSD 3-Clause License.
 
-Installing pyls-memestra in Jupyter Lab
----------------------------------------
+   The full license is in the file LICENSE, distributed with this software.
 
-Note that this extension depends on Memestra, so it's necessary to install it first. Please check Memestra's documentation_ for more information.
+Introduction
+============
 
-Install Pyls-Memestra plugin:
+``pyls-memestra`` is a plugin developed for JupyterLSP_ an implmentation of the PYLS_ to Jupyter. ``pyls-memestra`` uses Memestra_ a static analysis tool for Python, which detects the use of deprecated APIs.
 
-.. code-block:: console
+Licensing
+=========
 
-    pip install pyls-memestra
+We use a shared copyright model that enables all contributors to maintain the
+copyright on their contributions.
 
-Install the server extension:
+This software is licensed under the BSD-3-Clause license. See the LICENSE file for details.
 
-.. code-block:: console
 
-    pip install jupyter-lsp
+.. toctree::
+   :caption: Getting started
+   :maxdepth: 4
 
-Install the front-end extension for Jupyter Lab:
+   installation
+   getting_started
 
-.. code-block:: console
+.. toctree::
+   :caption: Customization
+   :maxdepth: 4
 
-    jupyter labextension install @krassowski/jupyterlab-lsp           # for JupyterLab 2.x
-    # jupyter labextension install @krassowski/jupyterlab-lsp@0.8.0   # for JupyterLab 1.x
+   customization
 
-Make sure you have NodeJs and the Python Language Server installed in your environment. You can get it with mamba:
-
-.. code-block:: console
-
-    mamba install -c conda-forge nodejs python-language-server
-
-Or conda:
-
-.. code-block:: console
-
-    conda install -c conda-forge nodejs python-language-server
-
-Example of pyls-memestra use
-----------------------------
-
-.. image:: binder.svg
-
-You can test pyls-memestra running this binder_ example.
-
-.. _binder: https://mybinder.org/v2/gh/QuantStack/pyls-memestra/master?urlpath=/lab/tree/binder/example.ipynb
-
-.. _documentation: https://memestra.readthedocs.io/en/latest/
+.. _PYLS: https://github.com/palantir/python-language-server
+.. _Memestra: https://github.com/QuantStack/memestra/
+.. _JupyterLSP: https://github.com/krassowski/jupyterlab-lsp
