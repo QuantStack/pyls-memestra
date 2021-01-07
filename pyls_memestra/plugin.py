@@ -3,8 +3,7 @@ from pyls import hookimpl, lsp
 from memestra import memestra
 
 import logging
-logger = logging.getLogger()
-logger.setLevel(logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 @hookimpl
 def pyls_settings():
