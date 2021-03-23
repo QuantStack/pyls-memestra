@@ -3,6 +3,7 @@ from pyls import hookimpl, lsp
 from memestra import memestra
 
 import logging
+logging.basicConfig(level=logging.ERROR)
 logger = logging.getLogger(__name__)
 
 @hookimpl
@@ -28,16 +29,20 @@ def pyls_lint(config, document):
     diagnostics = []
     search_paths = [os.path.dirname(os.path.abspath(document.path))]
     search_paths.extend(settings.get('additional_search_paths'))
-    with open(document.path, 'r') as code:
-        deprecated_uses = memestra(
-            code,
-            decorator=(settings.get('decorator_module'),
-                       settings.get('decorator_function')),
-            reason_keyword=settings.get('reason_keyword'),
-            recursive=settings.get('recursive'),
-            cache_dir=settings.get('cache_dir'),
-            search_paths=search_paths)
-        diagnostics = format_text(deprecated_uses, diagnostics)
+    try:
+        with open(document.path, 'r') as code:
+            deprecated_uses = memestra(
+                code,
+                decorator=(settings.get('decorator_module'),
+                           settings.get('decorator_function')),
+                reason_keyword=settings.get('reason_keyword'),
+                recursive=settings.get('recursive'),
+                cache_dir=settings.get('cache_dir'),
+                search_paths=search_paths)
+            diagnostics = format_text(deprecated_uses, diagnostics)
+    except SyntaxError as e:
+        logger.error('Syntax error at {} - {} ({})', e.line, e.column, e.message)
+        raise e
     return diagnostics
 
 def format_text(deprecated_uses, diagnostics):
