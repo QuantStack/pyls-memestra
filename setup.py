@@ -12,7 +12,7 @@ setup(
     url="https://github.com/QuantStack/pyls-memestra",
     author="marimeireles",
     author_email="mariana@psychonautgirl.space",
-    packages=find_package(".", exclude=["tests*"]),
+    packages=['pyls_memestra', "tests"],
     install_requires=open("requirements.txt").read().splitlines(),
     entry_points={"pyls": ["pyls_memestra = pyls_memestra.plugin"]},
     classifiers=[
