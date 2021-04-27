@@ -14,7 +14,7 @@ setup(
     author_email="mariana@psychonautgirl.space",
     packages=['pyls_memestra', "tests"],
     install_requires=open("requirements.txt").read().splitlines(),
-    entry_points={"pyls": ["pyls_memestra = pyls_memestra.plugin"]},
+    entry_points={"pylsp": ["pyls_memestra = pyls_memestra.plugin"]},
     classifiers=[
         "Environment :: Console",
         "Intended Audience :: Developers",

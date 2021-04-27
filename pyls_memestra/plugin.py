@@ -1,5 +1,5 @@
 import os
-from pyls import hookimpl, lsp
+from pylsp import hookimpl, lsp
 from memestra import memestra
 
 import logging

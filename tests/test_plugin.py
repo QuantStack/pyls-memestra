@@ -7,9 +7,9 @@ import pytest
 
 from memestra import memestra, nbmemestra
 from pyls_memestra.plugin import format_text, pyls_lint, pyls_settings
-from pyls import uris
-from pyls.config.config import Config
-from pyls.workspace import Workspace, Document
+from pylsp import uris
+from pylsp.config.config import Config
+from pylsp.workspace import Workspace, Document
 
 here = Path(__file__).parent
 data = here / "data"

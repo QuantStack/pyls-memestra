@@ -33,13 +33,13 @@ Make sure you have NodeJs and the Python Language Server installed in your envir
 
 .. code-block:: console
 
-    mamba install -c conda-forge nodejs python-language-server
+    mamba install -c conda-forge nodejs python-lsp-server
 
 Or conda:
 
 .. code-block:: console
 
-    conda install -c conda-forge nodejs python-language-server
+    conda install -c conda-forge nodejs python-lsp-server
 
 From source:
 ------------
@@ -54,11 +54,11 @@ Install the dependencies with either conda or mamba:
 
 .. code-block:: console
 
-    conda install -c conda-forge python jupyterlab nodejs python-language-server memestra jupyter-lsp
+    conda install -c conda-forge python jupyterlab nodejs python-lsp-server memestra jupyter-lsp
 
 .. code-block:: console
 
-    mamba install -c conda-forge python jupyterlab nodejs python-language-server memestra jupyter-lsp
+    mamba install -c conda-forge python jupyterlab nodejs python-lsp-server memestra jupyter-lsp
 
 Install the ``jupyter-lsp`` frontend extension:
 
