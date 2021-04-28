@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.ERROR)
 logger = logging.getLogger(__name__)
 
 @hookimpl
-def pyls_settings():
+def pylsp_settings():
     return {
         "plugins": {
             "pyls-memestra": {
@@ -23,7 +23,8 @@ def pyls_settings():
     }
 
 @hookimpl
-def pyls_lint(config, document):
+def pylsp_lint(config, document):
+    print("pyls_lint 🐔")
     settings = config.plugin_settings('pyls-memestra',
                                       document_path=document.path)
     diagnostics = []
