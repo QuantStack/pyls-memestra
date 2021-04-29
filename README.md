@@ -33,7 +33,7 @@ python -m pip install -e .
 1. install dependencies
 
     ```
-    mamba install -c conda-forge python jupyterlab nodejs python-language-server frilouz memestra jupyter-lsp
+    mamba install -c conda-forge python jupyterlab nodejs python-lsp-server frilouz memestra jupyter-lsp
     ```
 
 2. install the `jupyter-lsp` frontend extension (only for JupyterLab<3 users):

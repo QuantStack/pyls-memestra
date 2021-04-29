@@ -16,9 +16,9 @@ It's possible to customize ``pyls-memestra``, for that you must go to ``Settings
 
     {
         language_servers: {
-            pyls: {
+            pylsp: {
               serverSettings: {
-                pyls: {
+                pylsp: {
                   plugins: {
                     "pyls-memestra": {
                     ...keywords...
@@ -47,9 +47,9 @@ Example:
 
     {
         language_servers: {
-            pyls: {
+            pylsp: {
               serverSettings: {
-                pyls: {
+                pylsp: {
                   plugins: {
                     "pyls-memestra": {
                       reason_keyword: "due_to"
