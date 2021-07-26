@@ -73,4 +73,4 @@ Customizing using files
 Please refer to the PLS documentation_.
 
 .. _documentation: https://memestra.readthedocs.io/en/latest/
-.. _documentation: https://github.com/palantir/python-language-server#configuration
+.. _documentation: https://github.com/python-lsp/python-lsp-server#configuration
