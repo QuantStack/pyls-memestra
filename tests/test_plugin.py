@@ -6,7 +6,7 @@ from copy import deepcopy
 import pytest
 
 from memestra import memestra, nbmemestra
-from pyls_memestra.plugin import format_text, pyls_lint, pyls_settings
+from pyls_memestra.plugin import format_text, pylsp_lint, pylsp_settings
 from pylsp import uris
 from pylsp.config.config import Config
 from pylsp.workspace import Workspace, Document
@@ -17,7 +17,7 @@ data = here / "data"
 @pytest.fixture
 def config(tmpdir):
     config = Config(uris.from_fs_path(str(tmpdir)), {}, 0, {})
-    config.update(pyls_settings())
+    config.update(pylsp_settings())
     return config
 
 @pytest.fixture
@@ -68,7 +68,7 @@ def update_setting(config, name, value):
 
 def test_basic(workspace, config):
     doc = Document(uris.from_fs_path(str(data / "file.py")), workspace)
-    diagnostics = pyls_lint(config, doc)
+    diagnostics = pylsp_lint(config, doc)
 
     assert diagnostics == [
         build_diagnostic("foo", (7, 4), (7, 7), "deprecated at some point"),
@@ -87,7 +87,7 @@ foo()
 """)
     update_setting(config, "decorator_module", "bogus")
     update_setting(config, "decorator_function", "deprecateme")
-    diagnostics = pyls_lint(config, doc)
+    diagnostics = pylsp_lint(config, doc)
 
     assert diagnostics == [
         build_diagnostic("foo", (7, 0), (7, 3), "nope"),
@@ -104,7 +104,7 @@ def foo():
 foo()
 """)
     update_setting(config, "reason_keyword", "excuse")
-    diagnostics = pyls_lint(config, doc)
+    diagnostics = pylsp_lint(config, doc)
 
     assert diagnostics == [
         build_diagnostic("foo", (7, 0), (7, 3), "too old"),
@@ -121,7 +121,7 @@ def foo():
 foo()
 """)
     update_setting(config, "reason_keyword", "excuse")
-    diagnostics = pyls_lint(config, doc)
+    diagnostics = pylsp_lint(config, doc)
 
     assert diagnostics == [
         build_diagnostic("foo", (7, 0), (7, 3), None),
@@ -135,7 +135,7 @@ from testpackage import bar
 bar()
 """)
     update_setting(config, "recursive", True)
-    diagnostics = pyls_lint(config, doc)
+    diagnostics = pylsp_lint(config, doc)
 
     assert diagnostics == [
         build_diagnostic("bar", (3, 0), (3, 3), "nested"),
@@ -149,7 +149,7 @@ bar()
 """)
     update_setting(config, "additional_search_paths",
                    [str(data / "testpackage")])
-    diagnostics = pyls_lint(config, doc)
+    diagnostics = pylsp_lint(config, doc)
 
     assert diagnostics == [
         build_diagnostic("bar", (3, 0), (3, 3), "nested"),
@@ -163,7 +163,7 @@ bar()
 """)
     update_setting(config, "additional_search_paths", [str(data)])
     update_setting(config, "cache_dir", str(data / "cache"))
-    diagnostics = pyls_lint(config, doc)
+    diagnostics = pylsp_lint(config, doc)
 
     assert diagnostics == [
         build_diagnostic("bar", (3, 0), (3, 3), "cached"),
