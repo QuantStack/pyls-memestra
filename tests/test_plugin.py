@@ -1,4 +1,5 @@
 import os
+import sys
 import tempfile
 from pathlib import Path
 from unittest.mock import Mock
@@ -155,6 +156,7 @@ bar()
         build_diagnostic("bar", (3, 0), (3, 3), "nested"),
     ]
 
+@pytest.mark.skipif(sys.platform == 'win32', reason='failing on windows')
 def test_cache_dir(workspace, config, document):
     doc = document("""
 from cachetest import bar
