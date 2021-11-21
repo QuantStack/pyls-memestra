@@ -24,14 +24,14 @@ def pylsp_settings():
 
 @hookimpl
 def pylsp_lint(config, document):
-    print("pyls_lint 🐔")
+    # print("pyls_lint 🐔")
     settings = config.plugin_settings('pyls-memestra',
                                       document_path=document.path)
     diagnostics = []
     search_paths = [os.path.dirname(os.path.abspath(document.path))]
     search_paths.extend(settings.get('additional_search_paths'))
     try:
-        with open(document.path, 'r') as code:
+        with open(document.path, 'r', encoding="utf-8") as code:
             deprecated_uses = memestra(
                 code,
                 decorator=(settings.get('decorator_module'),
