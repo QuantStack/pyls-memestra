@@ -6,6 +6,11 @@ import logging
 logging.basicConfig(level=logging.ERROR)
 logger = logging.getLogger(__name__)
 
+# TODO: use lsp.DiagnosticTag once https://github.com/python-lsp/python-lsp-server/pull/142 is merged
+class DiagnosticTag:
+    Unnecessary = 1
+    Deprecated = 2
+
 @hookimpl
 def pylsp_settings():
     return {
@@ -58,6 +63,7 @@ def format_text(deprecated_uses, diagnostics):
                 'range': err_range,
                 'message': fname + " is deprecated. " + reason,
                 'severity': lsp.DiagnosticSeverity.Information,
+                'tags': [DiagnosticTag.Deprecated],
             })
         else:
             diagnostics.append({
@@ -65,5 +71,6 @@ def format_text(deprecated_uses, diagnostics):
                 'range': err_range,
                 'message': fname + " is deprecated.",
                 'severity': lsp.DiagnosticSeverity.Information,
+                'tags': [DiagnosticTag.Deprecated],
             })
     return diagnostics
