@@ -41,14 +41,12 @@ def document(workspace):
     os.remove(temp_file.name)
 
 def build_diagnostic(name, start, end, reason, source="memestra", severity=3, tags=None):
-    if tags is None:
-        tags = [2]
     if reason is None:
         message = name + " is deprecated."
     else:
         message = name + " is deprecated. " + reason
 
-    return {
+    diagnostic = {
             "source": source,
             "range": {
                 "start": {
@@ -62,8 +60,10 @@ def build_diagnostic(name, start, end, reason, source="memestra", severity=3, ta
             },
             "message": message,
             "severity": severity,
-            "tags": tags
         }
+    if tags is not None:
+        diagnostic["tags"] = tags
+    return diagnostic
 
 def update_setting(config, name, value):
     settings = deepcopy(config._settings)
@@ -77,6 +77,31 @@ def test_basic(workspace, config):
     assert diagnostics == [
         build_diagnostic("foo", (7, 4), (7, 7), "deprecated at some point"),
         build_diagnostic("imported", (9, 0), (9, 8), "test reason"),
+    ]
+
+
+def test_tag_support(workspace, config):
+    doc = Document(uris.from_fs_path(str(data / "file.py")), workspace)
+    config.capabilities['textDocument'] = {
+        'publishDiagnostics': {'tagSupport': {'valueSet': [2]}}
+    }
+    diagnostics = pylsp_lint(config, doc)
+
+    assert diagnostics == [
+        build_diagnostic("foo", (7, 4), (7, 7), "deprecated at some point", tags=[2]),
+        build_diagnostic("imported", (9, 0), (9, 8), "test reason", tags=[2]),
+    ]
+
+def test_tag_absent(workspace, config):
+    doc = Document(uris.from_fs_path(str(data / "file.py")), workspace)
+    config.capabilities['textDocument'] = {
+        'publishDiagnostics': {'tagSupport': {'valueSet': [1]}}
+    }
+    diagnostics = pylsp_lint(config, doc)
+
+    assert diagnostics == [
+        build_diagnostic("foo", (7, 4), (7, 7), "deprecated at some point", tags=None),
+        build_diagnostic("imported", (9, 0), (9, 8), "test reason", tags=None),
     ]
 
 def test_decorator_name(workspace, config, document):
