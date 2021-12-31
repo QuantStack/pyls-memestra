@@ -40,7 +40,9 @@ def document(workspace):
     yield write_doc
     os.remove(temp_file.name)
 
-def build_diagnostic(name, start, end, reason, source="memestra", severity=3):
+def build_diagnostic(name, start, end, reason, source="memestra", severity=3, tags=None):
+    if tags is None:
+        tags = [2]
     if reason is None:
         message = name + " is deprecated."
     else:
@@ -59,7 +61,8 @@ def build_diagnostic(name, start, end, reason, source="memestra", severity=3):
                 }
             },
             "message": message,
-            "severity": severity
+            "severity": severity,
+            "tags": tags
         }
 
 def update_setting(config, name, value):
