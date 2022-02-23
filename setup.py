@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="pyls-memestra",
-    version="0.0.15",
+    version="0.0.16",
     description="Memestra plugin for the Python Language Server",
     long_description=long_description,
     long_description_content_type="text/markdown",
